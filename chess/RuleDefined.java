@@ -93,6 +93,9 @@ public class RuleDefined {
         // 优先判断两方将帅是否在同一直线且在两者之间没有棋子阻隔
         byte[] posGeneralR = this.getPosGeneral(Const.FLAG_R);
         byte[] posGeneralB = this.getPosGeneral(Const.FLAG_B);
+        if (null == posGeneralR || null == posGeneralB) {
+            return true;
+        }
         if (posGeneralR[1] == posGeneralB[1] && 0 == this.getHinderCount(posGeneralB[0], posGeneralR[0], posGeneralB[1], Const.MOVE_VERTICAL)) {
             return true;
         }
